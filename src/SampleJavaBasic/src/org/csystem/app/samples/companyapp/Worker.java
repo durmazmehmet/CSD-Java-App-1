@@ -1,24 +1,14 @@
 package org.csystem.app.samples.companyapp;
 
-public class Worker extends Employee {
-    private int m_hourPerDay;
+public class Worker  extends Employee {
     private double m_feePerHour;
+    private int m_hourPerDay;
 
-    public Worker(String citizenId, String name, String address, int hourPerDay, double feePerHour)
+    public Worker(String citizenId, String name, double feePerHour, int hourPerDay)
     {
-        super(citizenId, name, address);
+        super(citizenId, name);
         //...
-        m_hourPerDay = hourPerDay;
         m_feePerHour = feePerHour;
-    }
-
-    public int getHourPerDay()
-    {
-        return m_hourPerDay;
-    }
-
-    public void setHourPerDay(int hourPerDay)
-    {
         m_hourPerDay = hourPerDay;
     }
 
@@ -29,10 +19,22 @@ public class Worker extends Employee {
 
     public void setFeePerHour(double feePerHour)
     {
+        //...
         m_feePerHour = feePerHour;
     }
 
-    public double calculatePayment()
+    public int getHourPerDay()
+    {
+        return m_hourPerDay;
+    }
+
+    public void setHourPerDay(int hourPerDay)
+    {
+        //...
+        m_hourPerDay = hourPerDay;
+    }
+
+    public double calculateInsurancePayment()
     {
         return m_feePerHour * m_hourPerDay * 30;
     }

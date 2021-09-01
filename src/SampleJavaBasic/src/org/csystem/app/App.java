@@ -1,13 +1,14 @@
 /*----------------------------------------------------------------------------------------------------------------------
-
+    CompanyApp örneği
 ----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.app;
 
-import org.csystem.app.samples.parserapp.ParserFileSourceTest;
+import org.csystem.app.samples.companyapp.CompanyApp;
 
 class App {
-    public static void main(String[] args)
+    public static void main(String [] args)
     {
-        ParserFileSourceTest.run();
+        CompanyApp.run();
     }
 }
+

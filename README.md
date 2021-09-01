@@ -1,4 +1,4 @@
-# JavaApp1-Jul-2020
+# JavaApp1-Feb-2021
 KAYNAK GÖSTERMEK KOŞULUYLA HER TÜRLÜ ALINTI YAPILABİLİR
 
 #java
@@ -10,3 +10,12 @@ KAYNAK GÖSTERMEK KOŞULUYLA HER TÜRLÜ ALINTI YAPILABİLİR
 #stream
 #parallelstream
 #collections
+#jpa
+#hibernate
+#mapstruct
+#retrofit
+#resttemplate
+#postgresql
+#rxjava
+#crudrepository
+

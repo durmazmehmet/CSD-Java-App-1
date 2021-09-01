@@ -1,17 +1,14 @@
 package org.csystem.app.samples.companyapp;
 
-public abstract class Employee {
+public class Employee {
     private String m_citizenId;
     private String m_name;
-    private String m_address;
     //...
-
-    protected Employee(String citizenId, String name, String address)
+    public Employee(String citizenId, String name)
     {
         //...
         m_citizenId = citizenId;
         m_name = name;
-        m_address = address;
     }
 
     public String getCitizenId()
@@ -21,6 +18,7 @@ public abstract class Employee {
 
     public void setCitizenId(String citizenId)
     {
+        //...
         m_citizenId = citizenId;
     }
 
@@ -31,19 +29,12 @@ public abstract class Employee {
 
     public void setName(String name)
     {
+        //...
         m_name = name;
     }
 
-    public String getAddress()
+    public double calculateInsurancePayment()
     {
-        return m_address;
+        return 0;
     }
-
-    public void setAddress(String address)
-    {
-        m_address = address;
-    }
-
-    public abstract double calculatePayment();
-    //...
 }

@@ -1,195 +1,87 @@
+/*----------------------------------------------------------------------------------------------------------------------	
+	StringUtil sınıfı
+----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.util;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.Random;
 
+import static java.lang.Character.*;
+
 public class StringUtil {
-
-
-
-    private static String getRandomText(Random r, String chars, int n)
+    private StringUtil()
     {
-        StringBuilder sb  = new StringBuilder(n);
-
-        for (int i = 0; i < n; ++i)
-            sb.append(chars.charAt(r.nextInt(chars.length())));
-
-        return sb.toString();
-    }
-
-    private static String getRandomUnrepeatedText(Random r, String chars, int n)
-    {
-        if (n <= 0 || n > chars.length())
-            throw new IllegalArgumentException("Invalid n n value");
-
-        StringBuilder sb  = new StringBuilder(n);
-        StringBuilder status = new StringBuilder(chars.length());
-
-        status.setLength(chars.length());
-        int index;
-        char ch;
-
-        for (int i = 0; i < n; ++i) {
-            for (;;) {
-                index = r.nextInt(chars.length());
-                ch = chars.charAt(index);
-
-                if (status.charAt(index) == '\0')
-                    break;
-            }
-            sb.append(ch);
-            status.setCharAt(index, ch);
-        }
-
-        return sb.toString();
-    }
-
-    private StringUtil() {}
-
-    public static boolean areCharactersDistinct(String str)
-    {
-        int len = str.length();
-
-        var characterHashSet = new HashSet<Character>();
-
-        for (int i = 0; i < len; ++i)
-            characterHashSet.add(str.charAt(i));
-
-        return len == characterHashSet.size();
     }
 
     public static String capitalize(String s)
     {
-        s = s.trim();
-        if (s.isEmpty())
+        if (s.isBlank())
             return s;
 
-        var sb = new StringBuilder(s.length());
-
-        sb.append(Character.toUpperCase(s.charAt(0))).append(s.substring(1).toLowerCase());
-
-        return sb.toString();
+        return toUpperCase(s.charAt(0)) + s.substring(1).toLowerCase();
     }
 
-    public static String changeCase(String str)
+    public static String changeCase(String s)
     {
-        var sb = new StringBuilder(str);
-        int len = sb.length();
+        var sb = new StringBuilder(s.length());
 
+        var length = s.length();
 
-        for (int i = 0; i < len; ++i) {
-            char ch = sb.charAt(i);
+        for (var i = 0; i < length; ++i) {
+            char ch = s.charAt(i);
 
-            if (!Character.isLetter(ch))
-                continue;
-
-            sb.setCharAt(i, Character.isUpperCase(ch) ? Character.toLowerCase(ch) : Character.toUpperCase(ch));
+            sb.append(Character.isUpperCase(ch) ? Character.toLowerCase(ch) : Character.toUpperCase(ch));
         }
 
         return sb.toString();
     }
 
-    public static String delete(String str, int begin, int end)
+    public static int countString(String s1, String s2)
     {
-        return new StringBuilder(str).delete(begin, end).toString();
-    }
+        var count = 0;
 
-    public static int getCount(String s1, String s2)
-    {
-        int count = 0;
-
-        for (int index = 0; (index = s1.indexOf(s2, index)) != -1; ++index, ++count)
+        for (int index = -1; (index = s1.indexOf(s2, index + 1)) != -1; ++count)
             ;
 
         return count;
     }
 
-    public static int getCountIgnoreCase(String s1, String s2)
+    public static String getLongestPalindrome(String s)
     {
-        return getCount(s1.toLowerCase(), s2.toLowerCase());
-    }
+        var result = "";
 
-    public static String getRandomPassword(Random r, int n)
-    {
-        if (n < 1)
-            return "";
+        var endIndex = s.length();
 
-        StringBuilder sb = new StringBuilder(n);
-        String delims = "_-?:";
+        while (endIndex != 0) {
+            var beginIndex = 0;
 
-        for (int i = 0; i < n; ++i) {
-            int val = r.nextInt(4);
-            switch (val) {
-                case 0:
-                    sb.append((char)(r.nextInt(26) + 'A'));
-                    break;
-                case 1:
-                    sb.append((char)(r.nextInt(26) + 'a'));
-                    break;
-                case 2:
-                    sb.append((char)(r.nextInt(10) + '0'));
-                    break;
-                case 3:
-                    sb.append(delims.charAt(r.nextInt(delims.length())));
-                    break;
+            while (beginIndex != endIndex) {
+                var str = s.substring(beginIndex++, endIndex);
+
+                if (str.length() > 1 && isPalindrome(str) && str.length() > result.length())
+                    result = str;
             }
 
+            --endIndex;
         }
 
-        return sb.toString();
+        return result;
     }
 
-    public static String getRandomPassword(int n)
+    public static String getRandomText(Random r, int n, String sourceText)
     {
-        return getRandomPassword(new Random(), n);
-    }
+        var length = sourceText.length();
+        var chars = new char[n];
 
-    public static String getRandomTextDE(Random r, int n)
-    {
-        if (n < 1)
-            return "";
+        for (var i = 0; i < n; ++i)
+            chars[i] = sourceText.charAt(r.nextInt(length));
 
-        String chars = "AaBbCcDdEeFfGgHhiIJjKkLlMmNnOoÖöPpRrSsTtUuÜüVvWwYyZz\u00E4\u00C4\u00DF";
-
-        return getRandomText(r, chars, n);
-    }
-
-    public static String getRandomTextDE(int n)
-    {
-        return getRandomTextDE(new Random(), n);
-    }
-
-    public static String getRandomTextEN(Random r, int n)
-    {
-        if (n < 1)
-            return "";
-
-        StringBuilder sb = new StringBuilder(n);
-
-        while (n-- > 0) {
-            boolean capital = r.nextBoolean();
-            int index = r.nextInt(26);
-
-            sb.append(capital ? (char)(index + 'A') : (char)(index + 'a'));
-        }
-
-        return sb.toString();
-    }
-
-    public static String getRandomTextEN(int n)
-    {
-        return getRandomTextEN(new Random(), n);
+        return String.valueOf(chars);
     }
 
     public static String getRandomTextTR(Random r, int n)
     {
-        if (n < 1)
-            return "";
-
-
-        String chars = "AaBbCcÇçDdEeFfGgĞğHhıIİiJjKkLlMmNnOoÖöPpRrSsŞşTtUuÜüVvYyZz";
-
-        return getRandomText(r, chars, n);
+        return getRandomText(r, n, "ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZabcçdefgğhıijklmnoöprsştuüvyz");
     }
 
     public static String getRandomTextTR(int n)
@@ -197,124 +89,199 @@ public class StringUtil {
         return getRandomTextTR(new Random(), n);
     }
 
-    public static String getString(int n, char ch)
+    public static String getRandomTextEN(Random r, int n)
     {
-        StringBuilder sb = new StringBuilder(n);
+        return getRandomText(r, n, "ABCDEFGHIJKLMNOPQRSTUWXVYZabcdefghijklmnopqrstuwxvyz");
+    }
+
+    public static String getRandomTextEN(int n)
+    {
+        return getRandomTextEN(new Random(), n);
+    }
+
+    public static String getRandomTextsTR(Random r, int n, int minLength, int maxLength)
+    {
+        StringBuilder sb = new StringBuilder();
 
         while (n-- > 0)
-            sb.append(ch);
+            sb.append(getRandomTextTR(r, r.nextInt(maxLength - minLength) + minLength));
 
         return sb.toString();
     }
 
-    public static String getRandomUnrepeatedTextEN(int n)
+    public static boolean isAllLetter(String s)
     {
-        return getRandomUnrepeatedTextEN(new Random(), n);
-    }
+        var length = s.length();
 
-    public static String getRandomUnrepeatedTextEN(Random r, int n)
-    {
-        String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-
-        return getRandomUnrepeatedText(r, chars, n);
-    }
-
-    public static String getRandomUnrepeatedTextTR(int n)
-    {
-        return getRandomUnrepeatedTextTR(new Random(), n);
-    }
-
-    public static String getRandomUnrepeatedTextTR(Random r, int n)
-    {
-        String chars = "ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZabcçdefgğhıijklmnoöprsştuüvyz";
-
-        return getRandomUnrepeatedText(r, chars, n);
-    }
-
-    public static boolean isPalindrome(String s)
-    {
-        return reverse(s).equals(s);
-    }
-
-    public static boolean isPangramTR(String str)
-    {
-        String chars = "abcçdefgğhıijklmnoöprsştuüvyz";
-
-        int len = chars.length();
-
-        str = str.toLowerCase();
-
-        for (int i = 0; i < len; ++i)
-            if (!str.contains(chars.charAt(i) + ""))
+        for (var i = 0; i < length; ++i)
+            if (!isLetter(s.charAt(i)))
                 return false;
 
         return true;
     }
 
-    public static String padRight(String s, int n, char ch)
+    public static boolean isPalindrome(String s)
     {
-        if (n <= s.length())
-            return s;
+        int left = 0;
+        int right = s.length() - 1;
 
-        return s + getString(n - s.length(), ch);
-    }
+        while (left < right) {
+            char chLeft = toLowerCase(s.charAt(left));
 
-    public static String padRight(String s, int n)
-    {
-        return padRight(s, n, ' ');
-    }
+            if (!isLetter(chLeft)) {
+                ++left;
+                continue;
+            }
 
-    public static String padLeft(String s, int n, char ch)
-    {
-        if (n <= s.length())
-            return s;
+            char chRight = toLowerCase(s.charAt(right));
 
-        return getString(n - s.length(), ch) + s;
-    }
+            if (!isLetter(chRight)) {
+                --right;
+                continue;
+            }
 
-    public static String padLeft(String s, int n)
-    {
-        return padLeft(s, n, ' ');
-    }
+            if (chLeft != chRight)
+                return false;
 
-    public static String removeWS(String s)
-    {
-        StringBuilder sb = new StringBuilder(s.length());
-        int len = s.length();
-
-        for (int i = 0; i < len; ++i) {
-            char ch = s.charAt(i);
-
-            if (!Character.isWhitespace(ch))
-                sb.append(ch);
+            ++left;
+            --right;
         }
 
-        return sb.toString();
+        return true;
     }
-    
+
+    public static boolean isPangramTR(String text)
+    {
+        return isPangram(text.toLowerCase(), "abcçdefgğhıijklmnoöprsştuüvyz");
+    }
+
+    public static boolean isPangramEN(String text)
+    {
+        return isPangram(text.toLowerCase(), "abcdefghijklmnopqrstuwxvyz");
+    }
+
+    public static boolean isPangram(String text, String alphabet)
+    {
+        int length = alphabet.length();
+
+        for (int i = 0; i < length; ++i)
+            if (!text.contains(alphabet.charAt(i) + ""))
+                return false;
+
+        return true;
+    }
+
+    public static String join(String [] str, char delimiter)
+    {
+        return  join(str, delimiter + "");
+    }
+
+    public static String join(String [] str, String delimiter)
+    {
+        var result = new StringBuilder();
+
+        for (var s : str)
+            result.append(s).append(delimiter);
+
+        return result.substring(0, result.length() - delimiter.length());
+    }
+
+    public static String join(ArrayList list, char delimiter)
+    {
+        return join(list, delimiter + "");
+    }
+
+    public static String join(ArrayList list, String delimiter)
+    {
+        String result = "";
+
+        for (Object obj : list)
+            result += (String)obj + delimiter;
+
+        return result.substring(0, result.length() - delimiter.length());
+    }
+
+    public static String padLeading(String s, int length, char ch)
+    {
+        if (length <= s.length())
+            return s;
+
+        return (ch + "").repeat(length - s.length()) + s;
+    }
+
+    public static String padLeading(String s, int length)
+    {
+        return padLeading(s, length, ' ');
+    }
+
+    public static String padTrailing(String s, int length, char ch)
+    {
+        if (length <= s.length())
+            return s;
+
+        return s + (ch + "").repeat(length - s.length());
+    }
+
+    public static String padTrailing(String s, int length)
+    {
+        return padTrailing(s, length, ' ');
+    }
+
     public static String reverse(String s)
     {
         return new StringBuilder(s).reverse().toString();
     }
 
-    public static String trimEnd(String s)
+    public static String squeeze(String s1, String s2)
     {
-        int i;
+        int length = s1.length();
+        StringBuilder sb = new StringBuilder();
 
-        for (i = s.length() - 1; i >= 0 && Character.isWhitespace(s.charAt(i)); --i)
-            ;
+        for (int i = 0; i < length; ++i) {
+            char ch = s1.charAt(i);
 
-        return s.substring(0, i + 1);
+            if (s2.indexOf(ch) == -1)
+                sb.append(ch);
+        }
+
+        return sb.toString();
     }
 
-    public static String trimStart(String s)
+    public static String [] split(String str, String delimiters, StringSplitOptions stringSplitOptions)
+    {
+        StringBuilder pattern = new StringBuilder("[");
+
+        int length = delimiters.length();
+
+        for (int i = 0; i < length; ++i) {
+            char delim = delimiters.charAt(i);
+
+            pattern.append(delim == '[' || delim == ']' ? "\\" + delim : delim);
+        }
+
+        pattern.append(stringSplitOptions == StringSplitOptions.REMOVE_EMPTY_ENTRIES ? "]+" : "]");
+
+        return str.split(pattern.toString());
+    }
+
+    public static String trimLeading(String s)
     {
         int i;
-        int len = s.length();
+        int length = s.length();
 
-        for (i = 0; i < len && Character.isWhitespace(s.charAt(i)); ++i)
+        for (i = 0; i < length && isWhitespace(s.charAt(i)); ++i)
             ;
 
         return s.substring(i);
+    }
+
+    public static String trimTrailing(String s)
+    {
+        int i;
+
+        for (i = s.length() - 1; i >= 0 && isWhitespace(s.charAt(i)); --i)
+            ;
+
+        return s.substring(0, i + 1);
     }
 }

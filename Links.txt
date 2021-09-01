@@ -1,10 +1,10 @@
-﻿Link			: https://www.dropbox.com/sh/gx1tafe22kxss4c/AAAM74qH0rqm2sfn9_SkSZPha?dl=0
-Kısa Link		: http://bit.do/javaapp1-jul-2020
-Github          : https://github.com/oguzkaran/JavaApp1-Jul-2020
+Link      : https://www.dropbox.com/sh/9d2d9ykxelp0x5m/AABg5oErlcpcAgmVqzk1a7hma?dl=0
+Kısa Link : http://bit.do/javaapp1-feb-2021
+Github    : https://github.com/oguzkaran/JavaApp1-Feb-2021
 
 
 
 İletişim Bilgileri:
 Oğuz Karan
-Email			: oguzkaran@csystem.org 
-Tel			    : 05325158012
+Email     : oguzkaran@csystem.org
+Tel       : 05325158012

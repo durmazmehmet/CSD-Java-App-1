@@ -3,44 +3,43 @@
 ----------------------------------------------------------------------------------------------------------------------*/
 package org.csystem.util.datetime;
 
-import java.util.Calendar;
 import java.util.Random;
 
-@Deprecated(since = "Java 8", forRemoval = true)
 public class Time {
     private int m_hour;
     private int m_minute;
     private int m_second;
     private int m_millisecond;
 
-    private static void doWorkForException(String errMsg)
+    private static void doWorkForException(String message)
     {
-        throw new DateTimeException(errMsg);
+        System.out.println(message);
+        System.exit(0); //exception konusuna kadar sabredin
     }
 
-    private static boolean isValidForBounds(int val, int max) //[0, max]
+    private static boolean isValidForUpperBound(int val, int bound)
     {
-        return 0 <= val && val <= max;
+        return 0 <= val && val <= bound;
     }
 
     private static boolean isValidForHour(int val)
     {
-        return isValidForBounds(val, 23);
+        return isValidForUpperBound(val, 23);
     }
 
     private static boolean isValidForMinute(int val)
     {
-        return isValidForBounds(val, 59);
+        return isValidForUpperBound(val, 59);
     }
 
     private static boolean isValidForSecond(int val)
     {
-        return isValidForBounds(val, 59);
+        return isValidForUpperBound(val, 59);
     }
 
     private static boolean isValidForMillisecond(int val)
     {
-        return isValidForBounds(val, 999);
+        return isValidForUpperBound(val, 999);
     }
 
     private static boolean isValidForTime(int hour, int minute, int second, int millisecond)
@@ -49,54 +48,44 @@ public class Time {
                 && isValidForSecond(second) && isValidForMillisecond(millisecond);
     }
 
+    private static void checkForTime(int hour, int minute, int second, int millisecond)
+    {
+        if (!isValidForTime(hour, minute, second, millisecond))
+            doWorkForException("Invalid Time");
+    }
+
     private static void checkForHour(int val)
     {
         if (!isValidForHour(val))
-            doWorkForException("Invalid hour value");
+            doWorkForException("Invalid hour");
     }
 
     private static void checkForMinute(int val)
     {
         if (!isValidForMinute(val))
-            doWorkForException("Invalid minute value");
+            doWorkForException("Invalid minute");
     }
 
     private static void checkForSecond(int val)
     {
         if (!isValidForSecond(val))
-            doWorkForException("Invalid second value");
+            doWorkForException("Invalid second");
     }
 
     private static void checkForMillisecond(int val)
     {
         if (!isValidForMillisecond(val))
-            doWorkForException("Invalid millisecond value");
+            doWorkForException("Invalid millisecond");
     }
 
-    private static void checkForTime(int hour, int minute, int second, int millisecond)
+    public static Time of()
     {
-        if (!isValidForTime(hour, minute, second, millisecond))
-            doWorkForException("Invalid time values");
+        return of(new Random());
     }
 
-    public static Time randomTime()
-    {
-        return randomTime(new Random());
-    }
-
-    public static Time randomTime(Random r)
+    public static Time of(Random r)
     {
         return new Time(r.nextInt(24), r.nextInt(60), r.nextInt(60), r.nextInt(1000));
-    }
-
-    public Time() //Sistemden o anki zaman alınıyor. Buradaki yazılan kodu anlamanız gerekmiyor
-    {
-        Calendar now = Calendar.getInstance();
-
-        m_hour = now.get(Calendar.HOUR_OF_DAY);
-        m_minute = now.get(Calendar.MINUTE);
-        m_second = now.get(Calendar.SECOND);
-        m_millisecond = now.get(Calendar.MILLISECOND);
     }
 
     public Time(int hour, int minute)
@@ -123,13 +112,13 @@ public class Time {
         return m_hour;
     }
 
-    public void setHour(int val)
+    public void setHour(int hour)
     {
-        if (val == m_hour)
+        if (hour == m_hour)
             return;
 
-        checkForHour(val);
-        m_hour = val;
+        checkForHour(hour);
+        m_hour = hour;
     }
 
     public int getMinute()
@@ -137,13 +126,13 @@ public class Time {
         return m_minute;
     }
 
-    public void setMinute(int val)
+    public void setMinute(int minute)
     {
-        if (val == m_minute)
+        if (minute == m_minute)
             return;
 
-        checkForMinute(val);
-        m_minute = val;
+        checkForMinute(minute);
+        m_minute = minute;
     }
 
     public int getSecond()
@@ -151,13 +140,13 @@ public class Time {
         return m_second;
     }
 
-    public void setSecond(int val)
+    public void setSecond(int second)
     {
-        if (val == m_second)
+        if (second == m_second)
             return;
 
-        checkForSecond(val);
-        m_second = val;
+        checkForSecond(second);
+        m_second = second;
     }
 
     public int getMillisecond()
@@ -165,23 +154,23 @@ public class Time {
         return m_millisecond;
     }
 
-    public void setMillisecond(int val)
+    public void setMillisecond(int millisecond)
     {
-        if (val == m_millisecond)
+        if (millisecond == m_millisecond)
             return;
 
-        checkForMillisecond(val);
-        m_millisecond = val;
-    }
-
-    public String toString()
-    {
-        return String.format("%s:%02d", toShortTimeString(), m_second);
+        checkForMillisecond(millisecond);
+        m_millisecond = millisecond;
     }
 
     public String toLongTimeString()
     {
         return String.format("%s.%03d", toString(), m_millisecond);
+    }
+
+    public String toString()
+    {
+        return String.format("%s:%02d", toShortTimeString(), m_second);
     }
 
     public String toShortTimeString()
