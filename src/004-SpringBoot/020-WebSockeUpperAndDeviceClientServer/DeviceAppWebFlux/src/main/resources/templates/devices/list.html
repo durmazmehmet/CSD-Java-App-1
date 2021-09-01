@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Devices</title>
+</head>
+<body>
+<h3>Devices</h3>
+<table>
+    <thead>
+    <tr>
+        <th></th>
+        <th>Name</th>
+        <th>IP Address</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="device : ${devices}">
+        <td th:text="${deviceStat.count}"/>
+        <td th:text="${device.name}"/>
+        <td th:text="${device.ipAddress}"/>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

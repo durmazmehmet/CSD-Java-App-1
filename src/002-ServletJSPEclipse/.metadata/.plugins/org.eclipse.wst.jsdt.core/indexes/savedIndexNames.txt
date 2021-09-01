@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+/mnt/58248fcc-69ca-4801-ac50-74e3e55a3caa/Dropbox/Dropbox/Kurslar/JavaApp1-Feb-2019/src/002-ServletJSPEclipse/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+1869707602.index
+3432376918.index
+3433730632.index
+2811748585.index
+2706193866.index
+3522154456.index

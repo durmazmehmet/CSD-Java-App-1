@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
+    <fullyQualifiedTypeName name="org.cystem.formprocessing.entity.PersonInfo"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
+    <fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
+    <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="org.csystem.deviceapp.entity.DeviceRepository"/>
+    <fullyQualifiedTypeName name="com.sun.tools.javac.util.List"/>
+    <fullyQualifiedTypeName name="java.util.Collection"/>
+    <fullyQualifiedTypeName name="java.util.Optional"/>
+    <fullyQualifiedTypeName name="org.csystem.service.ServiceException"/>
+    <fullyQualifiedTypeName name="java.lang.UnsupportedOperationException"/>
+    <fullyQualifiedTypeName name="com.sun.java_cup.internal.runtime.Scanner"/>
+    <fullyQualifiedTypeName name="java.lang.Throwable"/>
+    <fullyQualifiedTypeName name="java.lang.Iterable"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+    <fullyQualifiedTypeName name="org.csystem.servicelayer.ServiceException"/>
+    <fullyQualifiedTypeName name="java.io.IOError"/>
+    <fullyQualifiedTypeName name="org.csystem.deviceapp.jsp.DeviceAppJSP"/>
+    <fullyQualifiedTypeName name="javax.servlet.jsp.JspWriter"/>
+    <fullyQualifiedTypeName name="org.csystem.deviceapp.service.DeviceService"/>
+    <fullyQualifiedTypeName name="org.csystem.deviceapp.repository.DeviceRepository"/>
+    <fullyQualifiedTypeName name="org.csystem.repository.IRepository"/>
+    <fullyQualifiedTypeName name="org.csystem.deviceapp.entity.DeviceInfo"/>
+    <fullyQualifiedTypeName name="org.csystem.deviceapp.repository.IDeviceRepository"/>
+    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
+    <fullyQualifiedTypeName name="java.beans.Statement"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="java.sql.Statement"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.sql.SQLException"/>
+    <fullyQualifiedTypeName name="org.csystem.repository.RepositoryException"/>
+    <fullyQualifiedTypeName name="java.util.stream.Stream"/>
+    <fullyQualifiedTypeName name="java.util.stream.StreamSupport"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+</qualifiedTypeNameHistroy>

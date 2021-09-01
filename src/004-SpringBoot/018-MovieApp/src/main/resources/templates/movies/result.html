@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+</head>
+<body>
+    <h3>Movie Information</h3>
+    <h4 th:text="'Name:' + ${movie.name}"></h4>
+    <h4 th:text="'Type:' + ${movie.type}"></h4>
+    <h4 th:text="'Director:' + ${movie.director}"></h4>
+    <h4 th:text="'Duration:' + ${movie.duration}"></h4>
+    <h4 th:text="'Date:' + ${movie.date}"></h4>
+</body>
+</html>

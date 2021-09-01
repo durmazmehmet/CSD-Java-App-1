@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="org-csystem-util-datetime">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../Libraries/jars/org-csystem-util-datetime.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

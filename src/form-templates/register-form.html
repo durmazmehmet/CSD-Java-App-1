@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Form</title>
+	<style>
+		h3 { font-size: 20px; color: #c33c54; }
+		fieldset { border: 2px solid #c33c54; background: #f4ffe6; }
+		.form-group { overflow: hidden; float:left; width: 50%; }
+		.texts { width: 20%; margin: 20px auto; padding: 5px; text-align: center; line-height:42px; float: left; background: #c33c54; color: #fff; font-weight: bold; border-bottom-left-radius: 5px; border-top-left-radius: 5px; }
+		.text-input { width: 70%; height: 48px; margin: 20px auto; float: left; border: 1px solid #c33c54; outline: 0; padding-left: 2%; transition: 1s ease-in-out; }
+		select.text-input { width:72%; height: 52px; }
+		textarea.text-input { max-width: 70%; width:70%; transition: height 0s; padding-top: 10px; height: 38px; }
+		.text-input:focus { border: 1px solid blue; }
+		.radiobox { border: 1px solid #c33c54; overflow: hidden; margin-top: 20px; height: 50px; width: 72%; }
+		.radio { width: 35%; float: left; margin-left: 0%; margin-top: 15px; text-align: center;}
+		.fileupload { margin: 20px auto; width: 70%; height: 40px; border: 1px solid #c33c54; padding: 10px 0px 0px 10px; outline: 0; }
+		.subscribe { margin-top: 20px; }
+		.submit { width: 200px; background: #c33c54; color: #fff; font-weight: bold; height: 50px; border: none; transition: 1s ease; border-radius: 5px; float: right; margin: 40px 10% 2%0px; cursor: pointer; outline: 0; }
+		.submit:hover { background: #fff; color: #000; border: 1px solid #3a3a3a;}
+		.submit a { color: #fff; text-decoration: none; padding: 8% 40%; }
+	</style>
+</head>
+<body>
+<div class="container"> 
+	<form class="well form-horizontal" action="RegisterServlet" method="post" id="contact_form">
+		<fieldset>
+			<!-- Form Name -->
+			<legend><h3>İletişim Formu</h3></legend>
+
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="texts" for="name">Adınız</label>
+				<input name="name" placeholder="Adınız" class="text-input" type="text" required/>
+			</div>
+			<div class="form-group">
+				<label class="texts" for="citizen_id">T.C.No:</label>
+				<input name="citizen_id" placeholder="T.C. Kimlik Numaranız" class="text-input" type="text" required/>
+			</div>
+			
+			<!-- radio checks -->
+			<div class="form-group subscribe">
+				<label class="control-label">Sözleşme</label>
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" name="agree" /> Sözleşmeyi onaylıyorum
+					</label>
+				</div>				
+			</div>
+			<!-- Button -->
+			<div class="form-group">
+				<label class="control-label"></label>
+				<input type="submit" value="Kaydet" class="submit"/>
+				<input type="submit" value="Temizle" class="submit"/>
+			</div>
+
+		</fieldset>
+	</form>
+</div><!-- /.container -->
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Form</title>
+</head>
+<body>
+    <form action="#" th:action="@{/movies/moviesubmit}" th:object="${movie}" method="post">
+        <div>
+            <input type="text" th:field="*{name}" placeholder="Name">
+        </div>
+        <div>
+            <input type="text" th:field="*{type}" placeholder="Type">
+        </div>
+
+        <div>
+            <input type="text" th:field="*{director}" placeholder="Director">
+        </div>
+        <div>
+            <input type="number" th:field="*{duration}" placeholder="Duration">
+        </div>
+        <div>
+            <input type="date" th:field="*{date}">
+        </div>
+        <div>
+            <input type="submit" value="Save"/>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="org-csystem-util">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../Libraries/jars/org-csystem-util.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
