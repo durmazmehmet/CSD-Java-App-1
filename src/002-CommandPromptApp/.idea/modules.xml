@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/002-CommandPromptApp.iml" filepath="$PROJECT_DIR$/002-CommandPromptApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CommandPromptLib/CommandPromptLib.iml" filepath="$PROJECT_DIR$/CommandPromptLib/CommandPromptLib.iml" />
+    </modules>
+  </component>
+</project>

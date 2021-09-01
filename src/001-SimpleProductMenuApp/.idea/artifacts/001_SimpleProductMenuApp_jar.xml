@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="001-SimpleProductMenuApp:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/001_SimpleProductMenuApp_jar</output-path>
+    <root id="archive" name="001-SimpleProductMenuApp.jar">
+      <element id="module-output" name="001-SimpleProductMenuApp" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/org-csystem-utillib.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/EntitiesLib.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/ProductAppDAL.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

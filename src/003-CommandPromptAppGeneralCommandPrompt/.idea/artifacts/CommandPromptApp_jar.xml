@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CommandPromptApp:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CommandPromptApp_jar</output-path>
+    <root id="archive" name="CommandPromptApp.jar">
+      <element id="module-output" name="CommandPromptApp" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/org-csystem-utillib.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/org-csystem-util-commandprompt.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

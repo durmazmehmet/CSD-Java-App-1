@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ProductAppDAL">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/ProductAppDAL.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

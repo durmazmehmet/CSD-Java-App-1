@@ -1,18 +1,7 @@
-curl -d '{"name":"The Mask", "director":"Chuck Russel", "type":"Suç", "duration":1.41, "date":"1994-09-09"}' -H "Content-Type: application/json" -X POST http://localhost:8080/moviesrest
- 
-curl http://localhost:8080/devices
-
-curl -d '{"type":"Sedan", "model":"Porshe", "km":1000, "modelYear":2018, "rent":true}' -H "Content-Type: application/json" -X POST http://localhost:8080/autosrest
-
-
-
-curl -d '{"username":"javacsd", "password":"password"}' -H "Content-Type: application/json" -X POST http://localhost:8080/authenticate
-
-
+curl -d '{"name":"Lokman", "date":"2020-07-26", "total":"3499"}' -H "Content-Type: application/json" -X POST http://192.168.1.149:60600/invoices/save
 
 
 curl -H 'Accept: application/json' -H "Authorization: Bearer ${TOKEN}" http://localhost:8080/hello
-
 
 
 JWT Token does not begin with Bearer String

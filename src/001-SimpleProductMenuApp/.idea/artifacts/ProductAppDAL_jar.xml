@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ProductAppDAL:jar">
+    <output-path>$PROJECT_DIR$/libs</output-path>
+    <root id="archive" name="ProductAppDAL.jar">
+      <element id="module-output" name="ProductAppDAL" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/EntitiesLib.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

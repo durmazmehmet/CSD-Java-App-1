@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CommandPromptLib:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CommandPromptLib_jar</output-path>
+    <root id="archive" name="CommandPromptLib.jar">
+      <element id="module-output" name="CommandPromptLib" />
+    </root>
+  </artifact>
+</component>

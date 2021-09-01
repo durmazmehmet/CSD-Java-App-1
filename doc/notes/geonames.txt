@@ -1,1 +1,4 @@
 http://api.geonames.org/postalCodeSearchJSON?postalcode=67000&maxrows=10&username=csystem&password=XK3HdiBVej
+
+http://api.geonames.org/wikipediaSearchJSON?formatted=true&q=derince&maxRows=10&username=csystem&password=XK3HdiBVej&style=full
+
